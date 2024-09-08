@@ -58,9 +58,27 @@ function creatCounter() {
   };
 }
 const counter = creatCounter();
-
-console.log(counter());
 console.log(counter());
 console.log(counter());
 
-//2 задач нет, вообще ничего не могу понять про замыкание
+function createSecret() {
+  let secret = 'защищенное значение';
+  return function () {
+    console.log(secret);
+  };
+}
+const outputSecret = createSecret();
+outputSecret();
+
+function createCounterWithInitial(n) {
+  let first = n;
+  return function () {
+    first++;
+    return first;
+  };
+}
+
+const types = createCounterWithInitial(4);
+console.log(types());
+console.log(types());
+console.log(types());
